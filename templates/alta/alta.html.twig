@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CholloCochesIESRomero!{% endblock %}
+
+{% block body %}
+
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="assets/img/car2.svg" alt="..."/>
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">CholloCochesIESRomero</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Coches baratos a buen precio - IES Romero Vargas</p>
+        </div>
+    </header>
+
+
+    <!-- Contact Section-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Alta coche</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+
+
+            <!-- Contact Section Form-->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {{ form_start(form, {'attr': {'id': 'contactForm', 'data-sb-form-api-token': APP_SECRET }}) }}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+
+                        {{ form_widget(form.marca) }}
+                        {{ form_label(form.marca) }}
+                        <div class="invalid-feedback" data-sb-feedback="alta_coche_marca:required">La marca es
+                            obligatoria.
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.modelo) }}
+                        {{ form_label(form.modelo) }}
+                        <div class="invalid-feedback" data-sb-feedback="alta_coche_modelo:required">El modelo es
+                            obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.potencia) }}
+                        {{ form_label(form.potencia) }}
+                        <div class="invalid-feedback" data-sb-feedback="alta_coche_potencia:required">La potencia es
+                            obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.imagen) }}
+                        {{ form_label(form.imagen) }}
+                        <div class="invalid-feedback" data-sb-feedback="alta_coche_imagen:required">Una imagen es
+                            obligatorio.
+                        </div>
+                    </div>
+
+                    <div id="submitSuccessMessage" class="d-none">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                        </div>
+                    </div>
+
+                    <div id="submitErrorMessage" class="d-none">
+                        <div class="text-center text-danger mb-3">Error sending message!</div>
+                    </div>
+
+                    <!-- Submit Button-->
+                    <div class="form-floating mb-3">
+                        <input type="submit" class="btn btn-primary btn-xl col-12" id="submitButton" value="Enviar">
+                    </div>
+                    {{ form_end(form, {render_rest: false}) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

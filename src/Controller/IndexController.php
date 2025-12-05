@@ -74,8 +74,8 @@ final class IndexController extends AbstractController
             $this->entityManager->persist($coche);
             $this->entityManager->flush();
 
-            $this->addFlash('notice', 'Coche creado');
-            return $this->redirectToRoute('app_alta_coche');
+            //$this->addFlash('notice', 'Coche creado');
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->render('alta/alta.html.twig', [
