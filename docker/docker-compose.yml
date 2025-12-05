@@ -1,0 +1,39 @@
+services:
+    #PHP-FPM 8.2
+    php-fpm:
+        container_name: symfony_app_php_fpm
+        build:
+          context: .
+          dockerfile: php/Dockerfile
+          args:
+            TIMEZONE: ${TIMEZONE}
+        ports:
+            - 80:80
+        volumes:
+          - ../.:/var/www/${DOCKERFOLDER}/
+        networks:
+          - symfonyapp
+    #MYSQL SERVER
+    mysql:
+      platform: linux/amd64
+      build:
+        context: .
+        dockerfile: mysql/Dockerfile
+      container_name: symfonyapp_mysql
+      command: --default-authentication-plugin=mysql_native_password
+      restart: always
+      volumes:
+        - ./mysql/dump:/dump
+        - ./mysql/data:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=${MYSQLROOTPASSWORD}
+        - MYSQL_DATABASE=${MYSQLDATABASE}
+        - MYSQL_USER=${MYSQLUSER}
+        - MYSQL_PASSWORD=${MYSQLUSERPASSWORD}
+      ports:
+        - 3306:3306
+      networks:
+        - symfonyapp
+networks:
+  symfonyapp:
+
