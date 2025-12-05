@@ -85,7 +85,3 @@ Abrir el navegador con la siguiente dirección url:
 - [ ] [Localhost](http://localhost)
 
 Ahora podremos dar de alta coches en la base datos.
-
-## License
-For open source projects, say how it is licensed.
-
