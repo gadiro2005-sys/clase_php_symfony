@@ -73,7 +73,18 @@ Con la siguiente estructura:
 | imagen   | string  | 255      | No   |
 | potencia | integer |          | No   |
 
+Seguir las indicaciones que nos dice symfony por terminal.
 
+Una vez creada la entidad, debemos actualizar los cambios en la base de datos.
+
+```
+php bin/console doctrine:schema:update --force
+```
+
+Abrir el navegador con la siguiente dirección url:
+- [ ] [Localhost](http://localhost)
+
+Ahora podremos dar de alta coches en la base datos.
 
 ## License
 For open source projects, say how it is licensed.
