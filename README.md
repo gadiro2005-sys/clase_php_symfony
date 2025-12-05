@@ -48,6 +48,11 @@ docker ps
 docker exec -it symfony_app_php_fpm /bin/bash
 composer install
 ```
+Cuando pregunte por terminal:
+Do you want to include Docker configuration from recipes?
+
+Decir no
+
 Arrancamos el servidor web de PHP sin necesidad de Apache o NGINX
 
 ```
