@@ -86,6 +86,14 @@ Una vez creada la entidad, debemos actualizar los cambios en la base de datos.
 php bin/console doctrine:schema:update --force
 ```
 
+Crear la carpeta para subir fotos de coches
+
+```
+cd public
+mkdir uploads
+
+```
+
 Abrir el navegador con la siguiente dirección url:
 - [ ] [Localhost](http://localhost)
 
